@@ -66,15 +66,13 @@ namespace TechJobsOO
                 JobType.Value = "Data not available";
             }
 
-#pragma warning disable CS0252 // Possible unintended reference comparison; left hand side needs cast
-            if (JobCoreCompetency.Value == "" || JobCoreCompetency == null)
-#pragma warning restore CS0252 // Possible unintended reference comparison; left hand side needs cast
+            if (JobCoreCompetency.Value == "" || JobCoreCompetency.Value == null)
             {
                 JobCoreCompetency.Value = "Data not available";
             }
 
 
-            string output = $"\nID: {Id}\nName: {Name}\n Employer: {EmployerName.Value}\n Location: {EmployerLocation.Value}\n Position Type: {JobType.Value}\n Core Competency: {JobCoreCompetency.Value}\n";
+            string output = $"\n ID: {Id}\n Name: {Name}\n Employer: {EmployerName.Value}\n Location: {EmployerLocation.Value}\n Position Type: {JobType.Value}\n Core Competency: {JobCoreCompetency.Value}\n";
             return output;
         }
     }
