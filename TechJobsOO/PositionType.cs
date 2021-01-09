@@ -9,15 +9,15 @@ namespace TechJobsOO
         //private static int nextId = 1;
         //public string Value { get; set; }
 
-        public PositionType()
-        {
-            //Id = nextId;
-            //nextId++;
-        }
+        //public PositionType()
+        //{
+        //    //Id = nextId;
+        //    //nextId++;
+        //}
 
         public PositionType(string value) : base(value)
         {
-            Value = value;
+            //Value = value;
         }
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.

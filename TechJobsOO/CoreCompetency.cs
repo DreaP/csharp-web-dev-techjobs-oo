@@ -10,15 +10,15 @@ namespace TechJobsOO
 
         // TODO: Change the fields to auto-implemented properties.
 
-        public CoreCompetency()
-        {
-            //id = nextId;
-            //nextId++;
-        }
+        //public CoreCompetency()
+        //{
+        //    //id = nextId;
+        //    //nextId++;
+        //}
 
         public CoreCompetency(string value) : base(value)
         {
-            Value = value;
+            //Value = value;
         }
 
         //public override bool Equals(object obj)
