@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using TechJobsOO;
 
 namespace TechJobsTest
@@ -46,6 +47,34 @@ namespace TechJobsTest
 
             //Assert
             Assert.IsFalse(jobExpected.Equals(jobActual));
+        }
+        [TestMethod]
+        public void TestingFirstRequirement()
+        {
+            //Arrange
+            Job jobExpected = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            string testString = jobExpected.ToString();
+            char firstChar = testString[0];
+            char lastChar = testString[testString.Length - 1];
+            Assert.IsTrue(firstChar == lastChar);
+
+        }
+        [TestMethod]
+        public void TestToStringContainsCorrectLablesAndData()
+        {
+            Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            string testOutput = $"\nID: {job3.Id}\nName: {job3.Name}\n Employer: {job3.EmployerName.Value}\n Location: {job3.EmployerLocation.Value}\n Position Type: {job3.JobType.Value}\n Core Competency: {job3.JobCoreCompetency.Value}\n";
+            Assert.AreEqual(testOutput, job3.ToString());
+        }
+        
+        [TestMethod]
+        public void TestToStringHandlesEmptyField()
+        {
+            Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            job3.EmployerName.Value = "";
+            job3.JobType.Value = "";
+            string testOutput = $"\nID: {job3.Id}\nName: {job3.Name}\n Employer: Data not available\n Location: {job3.EmployerLocation.Value}\n Position Type: Data not available\n Core Competency: {job3.JobCoreCompetency.Value}\n";
+            Assert.AreEqual(testOutput, job3.ToString());
         }
     }
 }

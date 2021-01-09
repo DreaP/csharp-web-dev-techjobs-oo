@@ -44,5 +44,38 @@ namespace TechJobsOO
         {
             return HashCode.Combine(Id, Name, EmployerName, EmployerLocation, JobType, JobCoreCompetency);
         }
+        //Added ToString
+        public override string ToString()
+        {
+            if (Name == "")
+            {
+                Name = "Data not available";
+            }
+            if (EmployerName.Value == "" || EmployerName.Value == null)
+            {
+                EmployerName.Value = "Data not available";
+            }
+
+            if (EmployerLocation.Value == "" || EmployerLocation.Value == null)
+            {
+                EmployerLocation.Value = "Data not available";
+            }
+
+            if (JobType.Value == "" || JobType.Value == null)
+            {
+                JobType.Value = "Data not available";
+            }
+
+#pragma warning disable CS0252 // Possible unintended reference comparison; left hand side needs cast
+            if (JobCoreCompetency.Value == "" || JobCoreCompetency == null)
+#pragma warning restore CS0252 // Possible unintended reference comparison; left hand side needs cast
+            {
+                JobCoreCompetency.Value = "Data not available";
+            }
+
+
+            string output = $"\nID: {Id}\nName: {Name}\n Employer: {EmployerName.Value}\n Location: {EmployerLocation.Value}\n Position Type: {JobType.Value}\n Core Competency: {JobCoreCompetency.Value}\n";
+            return output;
+        }
     }
 }
